@@ -1,8 +1,13 @@
-Feature: As a user I want to login with different roles
+Feature: As user I want to login with different roles
 
-  Scenario: Login as "driver" (negative)
-    Given Open Vytrack login page
-    When Enter valid username and invalid password information
-    And Click login
-    Then Message Invalid user username or password. should be displayed
-    And Page title and url should be same
+
+  Scenario: Login as a store manager
+    Given user is on the landing page
+    When user logs as a store manager
+    And user verifies that "Dashboard" page name is displayed
+    @negative
+    Scenario: Verify warning message for invalid credentials
+      Given user is on the landing page
+      When user logs in with "wrong" username and "wrong" password
+      And verify that "Invalid user name or password." warning message is displayed
+      Then close browser
