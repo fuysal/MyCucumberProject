@@ -41,7 +41,7 @@ public class LoginStepDefinitions {
 
     @Then("close browser")
     public void close_browser() {
-        Driver.getDriver().quit();
+        Driver.getDriver().close();
     }
 
 
