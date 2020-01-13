@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {
                 "html:target/default-cucumber-reports"
         },
-        tags = {"@storemanager"},
+        tags = {"@vehicles"},
         features = {
                 "src/test/resources/features" //to specify where are the features
         },
