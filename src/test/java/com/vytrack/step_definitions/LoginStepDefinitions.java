@@ -1,11 +1,9 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.utilities.ConfigurationReader;
-import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.Pages;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
 public class LoginStepDefinitions {
@@ -39,9 +37,12 @@ public class LoginStepDefinitions {
        Assert.assertEquals(string, pages.loginPage().getErrorMessage());
     }
 
-    @Then("close browser")
-    public void close_browser() {
-        Driver.getDriver().close();
+    @When("user logs in as a driver")
+    public void user_logs_in_as_a_driver() {
+        String username = ConfigurationReader.getProperty("driverusername");
+        String password = ConfigurationReader.getProperty("driverpassword");
+        pages.loginPage().login(username,password);
+
     }
 
 
