@@ -1,12 +1,15 @@
 package com.vytrack.step_definitions;
 
 
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import java.util.concurrent.TimeUnit;
 
 public class Hook {
     @Before (order = 1)
@@ -15,7 +18,9 @@ public class Hook {
         System.out.println(scenario.getName());
         System.out.println(scenario.getSourceTagNames());
         System.out.println("Before");
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"+ConfigurationReader.getProperty("environment")));
         Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
     }
 
