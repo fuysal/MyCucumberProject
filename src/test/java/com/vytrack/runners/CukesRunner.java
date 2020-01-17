@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json",
                 "html:target/default-cucumber-reports"
         },
-       tags = {"@create_a_car_with_list_of_map"},
+       tags = {"@navigation"},
         features = {
                 "src/test/resources/features" //to specify where are the features
         },

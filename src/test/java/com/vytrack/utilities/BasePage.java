@@ -28,6 +28,9 @@ public abstract class BasePage {
     @FindBy(linkText = "Logout")
     protected WebElement logout;
 
+    @FindBy(css = "#user-menu")
+    protected WebElement userMenuName;
+
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -103,4 +106,9 @@ public abstract class BasePage {
         usersFullName.click();
         logout.click();
     }
+    public String getUserMenuName(){
+        waitUntilLoaderScreenDisappear();
+        return userMenuName.getText();
+    }
+
 }
